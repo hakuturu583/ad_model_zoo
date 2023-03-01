@@ -12,4 +12,4 @@ RUN git clone -b main https://github.com/wzzheng/TPVFormer.git
 WORKDIR TPVFormer
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install torch==1.10.0
-RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install mmcv_full==1.4.0 mmdet==2.14.0 mmdet3d==0.18.1 mmsegmentation==0.14.1 numba==0.48.0 numpy==1.19.0 Pillow==9.3.0 PyYAML==6.0 timm==0.4.12 torch==1.10.0
