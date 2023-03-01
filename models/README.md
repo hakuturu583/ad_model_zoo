@@ -7,7 +7,7 @@ This repository collection of ML models for Autonomous Driving.
 ### Dependency
 
 - docker
-- docker-compose
+- nvidia container runtime
 
 ### Environment Variable
 

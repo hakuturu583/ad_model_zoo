@@ -8,3 +8,5 @@
 nuscenes
 
 ## Build Commands
+
+docker build -t tpv_former .
