@@ -7,6 +7,9 @@ inputs:
   docker_context:
     description: 'path to the docker context'
     required: true
+  github_token:
+    description: 'github token'
+    required: true
 
 runs:
   using: "composite"
@@ -18,7 +21,7 @@ runs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ inputs.github_token }}
     - name: Build and push
       uses: docker/build-push-action@v3
       with:

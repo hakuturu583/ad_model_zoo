@@ -26,3 +26,4 @@ jobs:
         with:
           docker_image_name: ${{ matrix.model }}
           docker_context: ${{ matrix.docker_context }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
