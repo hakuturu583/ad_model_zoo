@@ -21,6 +21,7 @@ jobs:
           - docker_context: models/TPVFormer
             model: tpv_former
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/docker_build
         with:
           docker_image_name: ${{ matrix.model }}
