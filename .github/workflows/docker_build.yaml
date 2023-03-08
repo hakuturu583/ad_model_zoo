@@ -6,6 +6,12 @@ on:
   push:
     branches:
       - master
+
+jobs:
+  docker_build:
+    name: docker build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       max-parallel: 8
@@ -14,9 +20,6 @@ on:
         include:
           - docker_context: models/TPVFormer
             model: tpv_former
-jobs:
-  composite_test:
-    runs-on: ubuntu-latest
     steps:
       - uses: ./.github/actions/docker_build
         with:
