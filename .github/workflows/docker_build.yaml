@@ -33,7 +33,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          tags: ghcr.io/ouxt-polaris/ad_model_zoo/${{ matrix.model }}:latest
+          tags: ghcr.io/hakuturu583/ad_model_zoo/${{ matrix.model }}:latest
           no-cache: true
           push: ${{ github.event_name != 'pull_request' }}
           cache-from: type=gha
