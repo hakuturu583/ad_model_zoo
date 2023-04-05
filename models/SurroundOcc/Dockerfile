@@ -9,6 +9,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install -y \
     git \
     wget \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py37_23.1.0-1-Linux-x86_64.sh && \
     chmod a+x Miniconda3-py37_23.1.0-1-Linux-x86_64.sh && \
@@ -66,3 +67,12 @@ WORKDIR ../../
 RUN mkdir ckpts
 WORKDIR ckpts
 RUN wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
+
+# Setup data directory
+WORKDIR ../
+RUN mkdir data
+WORKDIR data
+RUN wget https://cloud.tsinghua.edu.cn/f/ebbed36c37b248149192/?dl=1 -O nuscenes_infos_train.pkl && \
+    wget https://cloud.tsinghua.edu.cn/f/b3f169f4db034764bb87/?dl=1 -O nuscenes_infos_val.pkl && \
+    wget https://cloud.tsinghua.edu.cn/f/290276f4a4024896b733/?dl=1 -O val.zip && unzip val.zip && rm val.zip && \
+    wget https://cloud.tsinghua.edu.cn/f/f021006560b54bc78349/?dl=1 -O train.zip && unzip train.zip && rm train.zip
