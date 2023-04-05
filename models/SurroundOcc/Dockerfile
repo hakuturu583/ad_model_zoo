@@ -69,6 +69,7 @@ WORKDIR ckpts
 RUN wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
 
 # Setup data directory
+## See also https://github.com/weiyithu/SurroundOcc/blob/main/docs/data.md
 WORKDIR ../
 RUN mkdir data
 WORKDIR data
