@@ -8,5 +8,5 @@ services:
     #   dockerfile: Dockerfile
     volumes:
       - type: bind
-        source: $HOME
-        target: "/config"
+        source: $NUSCENES_DIR/nuScenes-map-expansion-v1.3
+        target: /SurroundOcc/data/nuscenes/map

@@ -28,3 +28,5 @@ nuScenes-map-expansion-v1.3  v1.0-test_meta	    v1.0-trainval03_blobs  v1.0-trai
 v1.0-mini		     v1.0-trainval01_blobs  v1.0-trainval04_blobs  v1.0-trainval07_blobs  v1.0-trainval10_blobs
 v1.0-test_blobs		     v1.0-trainval02_blobs  v1.0-trainval05_blobs  v1.0-trainval08_blobs  v1.0-trainval_meta
 ```
+
+Set the path of the extracted directory to the NUSCENES_DIR environment variable.
