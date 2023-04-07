@@ -19,11 +19,10 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py37_23.1.0-1-Linux-x86_
     ./Miniconda3-py37_23.1.0-1-Linux-x86_64.sh -b && \
     rm Miniconda3-py37_23.1.0-1-Linux-x86_64.sh
 ENV PATH $PATH:/root/miniconda3/bin
-RUN echo ". ${HOME}/miniconda3/etc/profile.d/conda.sh && conda activate surroundocc" >> ~/.bashrc
 
 # 1. Create a conda virtual environment and activate it.
-RUN . ~/.bashrc && conda create -n surroundocc python=3.7 -y && conda activate surroundocc
-RUN source ~/.bashrc
+RUN conda create -n surroundocc python=3.7 -y
+SHELL ["conda", "run", "-n", "surroundocc", "/bin/bash", "-c"]
 
 # 2. Install PyTorch and torchvision (tested on torch==1.10.1 & cuda=11.3).
 RUN pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
