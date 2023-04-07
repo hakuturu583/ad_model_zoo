@@ -10,5 +10,11 @@ services:
     #   dockerfile: Dockerfile
     volumes:
       - type: bind
-        source: $NUSCENES_DIR/nuScenes-map-expansion-v1.3
-        target: /SurroundOcc/data/nuscenes/map
+        source: $NUSCENES_DIR/v1.0-mini
+        target: /SurroundOcc/data/nuscenes
+      - type: bind
+        source: $NUSCENES_DIR/v1.0-test_meta/v1.0-test
+        target: /SurroundOcc/data/nuscenes/v1.0-test
+      - type: bind
+        source: $NUSCENES_DIR/v1.0-trainval_meta/v1.0-trainval
+        target: /SurroundOcc/data/nuscenes/v1.0-trainval
