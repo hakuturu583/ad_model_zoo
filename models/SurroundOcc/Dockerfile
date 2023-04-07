@@ -22,7 +22,7 @@ ENV PATH $PATH:/root/miniconda3/bin
 RUN echo ". ${HOME}/miniconda3/etc/profile.d/conda.sh && conda activate surroundocc" >> ~/.bashrc
 
 # 1. Create a conda virtual environment and activate it.
-RUN . ~/.bashrc && conda create -n surroundocc python=3.7 -y
+RUN . ~/.bashrc && conda create -n surroundocc python=3.7 -y && conda activate surroundocc
 RUN source ~/.bashrc
 
 # 2. Install PyTorch and torchvision (tested on torch==1.10.1 & cuda=11.3).
