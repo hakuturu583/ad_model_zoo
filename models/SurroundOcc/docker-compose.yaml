@@ -3,6 +3,8 @@ version: '3'
 services:
   surround_occ:
     image: surround_occ
+    tty: true
+    stdin_open: true
     # build:
     #   context: .
     #   dockerfile: Dockerfile
