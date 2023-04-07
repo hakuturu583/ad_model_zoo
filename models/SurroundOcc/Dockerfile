@@ -6,10 +6,13 @@ FROM nvidia/cuda:11.3.0-devel-ubuntu20.04
 SHELL ["/bin/bash", "-c"]
 
 # Install conda
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y \
     git \
     wget \
     unzip \
+    libgl1-mesa-dev \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py37_23.1.0-1-Linux-x86_64.sh && \
     chmod a+x Miniconda3-py37_23.1.0-1-Linux-x86_64.sh && \
