@@ -37,7 +37,7 @@ RUN pip install mmcv-full==1.4.0
 RUN pip install mmdet==2.14.0 && \
     pip install mmsegmentation==0.14.1
 
-RUN pip install scikit-image==0.20.0
+RUN pip install scikit-image==0.20.0 networkx>=2.8
 
 # 6. Install mmdet3d from source code.
 RUN git clone -b v0.17.1 https://github.com/open-mmlab/mmdetection3d.git
