@@ -21,14 +21,14 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-py37_23.1.0-1-Linux-x86_
 ENV PATH $PATH:/root/miniconda3/bin
 
 # 1. Create a conda virtual environment and activate it.
-RUN conda create -n surroundocc python=3.7 -y
+RUN conda create -n surroundocc python=3.8 -y
 SHELL ["conda", "run", "-n", "surroundocc", "/bin/bash", "-c"]
 
 # 2. Install PyTorch and torchvision (tested on torch==1.10.1 & cuda=11.3).
 RUN pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 
 # 3. Install gcc>=5 in conda env.
-RUN conda install -c omgarcia gcc-6.2
+RUN conda install -c omgarcia gcc-6
 
 # 4. Install MMCV following the official instructions.
 RUN pip install mmcv-full==1.4.0
@@ -36,6 +36,8 @@ RUN pip install mmcv-full==1.4.0
 # 5. Install mmdet and mmseg.
 RUN pip install mmdet==2.14.0 && \
     pip install mmsegmentation==0.14.1
+
+RUN pip install scikit-image==0.20.0
 
 # 6. Install mmdet3d from source code.
 RUN git clone -b v0.17.1 https://github.com/open-mmlab/mmdetection3d.git
@@ -51,7 +53,7 @@ ENV LD_LIBRARY_PATH $CUDA_HOME/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 ENV LIBRARY_PATH $CUDA_HOME/lib64:$LIBRARY_PATH
 ENV LD_LIBRARY_PATH $CUDA_HOME/lib64:$LD_LIBRARY_PATH
 ENV CFLAGS="-I$CUDA_HOME/include $CFLAGS"
-RUN pip install -e .
+RUN python setup.py install
 
 # # 7. Install other dependencies.
 RUN pip install timm && \
