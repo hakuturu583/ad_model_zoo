@@ -28,7 +28,7 @@ SHELL ["conda", "run", "-n", "surroundocc", "/bin/bash", "-c"]
 RUN pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
 
 # 3. Install gcc>=5 in conda env.
-RUN conda install -c omgarcia gcc-6
+RUN conda install -c omgarcia gcc-6.2
 
 # 4. Install MMCV following the official instructions.
 RUN pip install mmcv-full==1.4.0
